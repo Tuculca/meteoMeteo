@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Immagini scorrevoli</title>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      img {
+        width: 508px;
+        height: 488px;
+        object-fit: cover;
+        margin: 20px 0;
+      }
+
+      button {
+        padding: 10px;
+        margin: 10px;
+        font-size: 30px;
+        border: none;
+        border-radius: 5px;
+        background-color: #1abc9c;
+        color: #fff;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img id="slider" src="https://tuculca.github.io/meteoMeteo/Temperature/Geop_d01_2023-03-28_01.jpg">
+      <div>
+        <button id="prev">&#8592;</button>
+        <button id="next">&#8594;</button>
+      </div>
+    </div>
+    <script>
+      var images = ["https://tuculca.github.io/meteoMeteo/Temperature/Geop_d01_2023-03-28_02.jpg", "https://tuculca.github.io/meteoMeteo/Temperature/Geop_d01_2023-03-28_03.jpg"];
+      var slider = document.getElementById("slider");
+      var prevButton = document.getElementById("prev");
+      var nextButton = document.getElementById("next");
+      var currentIndex = 0;
+      prevButton.addEventListener("click", function() {
+        currentIndex--;
+        if (currentIndex < 0) {
+          currentIndex = images.length - 1;
+        }
+        slider.src = images[currentIndex];
+      });
+      nextButton.addEventListener("click", function() {
+        currentIndex++;
+        if (currentIndex >= images.length) {
+          currentIndex = 0;
+        }
+        slider.src = images[currentIndex];
+      });
+    </script>
+  </body>
+</html>
