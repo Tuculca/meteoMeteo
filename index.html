@@ -8,12 +8,12 @@
         justify-content: center;
         align-items: center;
         margin: 0;
+        max-width: 100%;
       }
 
       /* Stile per il div immagine */
       .image-gallery {
         height: 100%;
-	max-width: 100%;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -25,12 +25,18 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
-        align-items: center;
       }
 
       /* Stile per le immagini */
       .image-row img {
+        max-width: 100%;
+        max-height: 100%;
+        height= auto;
         margin: 5px;
+      }
+      
+      figure {
+        width: 50%;
       }
     </style>
   </head>
@@ -39,13 +45,13 @@
       <div class="image-row">
 	  <figure>
 	<a href="https://tuculca.github.io/meteoMeteo/Temperature/">
-          <img src="https://tuculca.github.io/meteoMeteo/Temperature/Temperature.gif" alt="Immagine 1" width="488" height="508">
+          <img src="https://tuculca.github.io/meteoMeteo/Temperature/Temperature.gif" alt="Immagine 1">
         </a>
         <figcaption style="text-align: center; font-family: Calibri, sans-serif;">Temperatura</figcaption>
         </figure>
         <figure>
         <a href="https://tuculca.github.io/meteoMeteo/Rain/">
-          <img src="https://tuculca.github.io/meteoMeteo/Rain/Rain.gif" alt="Immagine 2" width="488" height="508">
+          <img src="https://tuculca.github.io/meteoMeteo/Rain/Rain.gif" alt="Immagine 2">
         </a>
         <figcaption style="text-align: center; font-family: Calibri, sans-serif;">Pioggia</figcaption>
         </figure>
@@ -53,13 +59,13 @@
       <div class="image-row">
 	  <figure>
         <a href="https://tuculca.github.io/meteoMeteo/Wind">
-          <img src="https://tuculca.github.io/meteoMeteo/Wind/Wind.gif" alt="Immagine 3" width="488" height="508">
+          <img src="https://tuculca.github.io/meteoMeteo/Wind/Wind.gif" alt="Immagine 3">
         </a>
         <figcaption style="text-align: center; font-family: Calibri, sans-serif;">Vento</figcaption>
         </figure>
 		<figure>
         <a href="https://tuculca.github.io/meteoMeteo/CloudTot">
-          <img src="https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot.gif" alt="Immagine 4" width="488" height="508">
+          <img src="https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot.gif" alt="Immagine 4">
         </a>
         <figcaption style="text-align: center; font-family: Calibri, sans-serif;">Copertura nuvolosa totale</figcaption>
         </figure>
@@ -67,15 +73,15 @@
       <div class="image-row">
 	  <figure>
         <a href="https://tuculca.github.io/meteoMeteo/Geopotential">
-          <img src="https://tuculca.github.io/meteoMeteo/Geopotential/Geop.gif" alt="Immagine 5" width="488" height="508">
+          <img src="https://tuculca.github.io/meteoMeteo/Geopotential/Geop.gif" alt="Immagine 5">
         </a>
         <figcaption style="text-align: center; font-family: Calibri, sans-serif;">Geopotenziale a 500hPa</figcaption>
         </figure>
 		<figure>
         <a href="https://tuculca.github.io/meteoMeteo/Geopotential">
-          <img src="https://tuculca.github.io/meteoMeteo/Geopotential/Geop.gif" alt="Immagine 6" width="488" height="508">
+          <img src="https://tuculca.github.io/meteoMeteo/Geopotential/Geop.gif" alt="Immagine 6">
         </a>
-        <figcaption style="text-align: center; font-family: Calibri, sans-serif;">Errore</figcaption>
+        <figcaption style="text-align: center;">Errore</figcaption>
         </figure>
       </div>
     </div>
