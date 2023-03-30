@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Immagini scorrevoli</title>
+    <title>Copertura nuvolosa</title>
     <style>
       .container {
         display: flex;
@@ -15,29 +15,25 @@
         object-fit: cover;
         margin: 20px 0;
       }
-
+      
       button {
-        padding: 10px;
-        margin: 10px;
-        font-size: 30px;
-        border: none;
-        border-radius: 5px;
-        background-color: #1abc9c;
-        color: #fff;
-        cursor: pointer;
+        font-size: 16px;
+        padding: 5px 10px;
       }
+
     </style>
   </head>
   <body>
     <div class="container">
-      <img id="slider" src="https://tuculca.github.io/meteoMeteo/Rain/Rain3h_d01_01.jpg">
+      <img id="slider" src="https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_01.jpg">
       <div>
-        <button id="prev">&#8592;</button>
-        <button id="next">&#8594;</button>
+        <button id="prev" class="gradient-btn">&#8592;</button>
+        <button id="next" class="gradient-btn">&#8594;</button>
+        <button id="switch" class="gradient-btn">Centro Italia</button>
       </div>
     </div>
     <script>
-      var images = [        
+      var myimages1 = [
         "https://tuculca.github.io/meteoMeteo/Rain/Rain3h_d01_01.jpg",
         "https://tuculca.github.io/meteoMeteo/Rain/Rain3h_d01_02.jpg",
         "https://tuculca.github.io/meteoMeteo/Rain/Rain3h_d01_03.jpg",
@@ -55,23 +51,59 @@
         "https://tuculca.github.io/meteoMeteo/Rain/Rain3h_d01_15.jpg",
         "https://tuculca.github.io/meteoMeteo/Rain/Rain3h_d01_16.jpg"
       ];
+      var myimages2 = [
+        "https://tuculca.github.io/meteoMeteo/Rain/Rain3h_d02_01.jpg",
+        "https://tuculca.github.io/meteoMeteo/Rain/Rain3h_d02_02.jpg",
+        "https://tuculca.github.io/meteoMeteo/Rain/Rain3h_d02_03.jpg",
+        "https://tuculca.github.io/meteoMeteo/Rain/Rain3h_d02_04.jpg",
+        "https://tuculca.github.io/meteoMeteo/Rain/Rain3h_d02_05.jpg",
+        "https://tuculca.github.io/meteoMeteo/Rain/Rain3h_d02_06.jpg",
+        "https://tuculca.github.io/meteoMeteo/Rain/Rain3h_d02_07.jpg",
+        "https://tuculca.github.io/meteoMeteo/Rain/Rain3h_d02_08.jpg",
+        "https://tuculca.github.io/meteoMeteo/Rain/Rain3h_d02_09.jpg",
+        "https://tuculca.github.io/meteoMeteo/Rain/Rain3h_d02_10.jpg",
+        "https://tuculca.github.io/meteoMeteo/Rain/Rain3h_d02_11.jpg",
+        "https://tuculca.github.io/meteoMeteo/Rain/Rain3h_d02_12.jpg",
+        "https://tuculca.github.io/meteoMeteo/Rain/Rain3h_d02_13.jpg",
+        "https://tuculca.github.io/meteoMeteo/Rain/Rain3h_d02_14.jpg",
+        "https://tuculca.github.io/meteoMeteo/Rain/Rain3h_d02_15.jpg",
+        "https://tuculca.github.io/meteoMeteo/Rain/Rain3h_d02_16.jpg"
+      ];
       var slider = document.getElementById("slider");
       var prevButton = document.getElementById("prev");
       var nextButton = document.getElementById("next");
+      var switchButton = document.getElementById("switch");
       var currentIndex = 0;
+      var currentImages = myimages1;
+      switchButton.addEventListener("click", function() {
+  if (switchButton.innerHTML === "Centro Italia") {
+    switchButton.innerHTML = "Italia";
+  } else {
+    switchButton.innerHTML = "Centro Italia";
+  }
+});
+      
       prevButton.addEventListener("click", function() {
         currentIndex--;
         if (currentIndex < 0) {
-          currentIndex = images.length - 1;
+          currentIndex = currentImages.length - 1;
         }
-        slider.src = images[currentIndex];
+        slider.src = currentImages[currentIndex];
       });
       nextButton.addEventListener("click", function() {
         currentIndex++;
-        if (currentIndex >= images.length) {
+        if (currentIndex >= currentImages.length) {
           currentIndex = 0;
         }
-        slider.src = images[currentIndex];
+        slider.src = currentImages[currentIndex];
+      });
+      switchButton.addEventListener("click", function() {
+        if (currentImages === myimages1) {
+          currentImages = myimages2;
+        } else {
+          currentImages = myimages1;
+        }
+        slider.src = currentImages[currentIndex];
       });
     </script>
   </body>
