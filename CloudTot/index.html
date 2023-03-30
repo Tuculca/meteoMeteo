@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Immagini scorrevoli</title>
+    <title>Copertura nuvolosa</title>
     <style>
       .container {
         display: flex;
@@ -15,95 +15,71 @@
         object-fit: cover;
         margin: 20px 0;
       }
-
+      
       button {
-        padding: 10px;
-        margin: 10px;
-        font-size: 30px;
-        border: none;
-        border-radius: 5px;
-        background-color: #1abc9c;
-        color: #fff;
-        cursor: pointer;
+        font-size: 16px;
+        padding: 5px 10px;
       }
+
     </style>
   </head>
   <body>
     <div class="container">
       <img id="slider" src="https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_01.jpg">
       <div>
-        <button id="prev">&#8592;</button>
-        <button id="next">&#8594;</button>
+        <button id="prev" class="gradient-btn">&#8592;</button>
+        <button id="next" class="gradient-btn">&#8594;</button>
+        <button id="switch" class="gradient-btn">Centro Italia</button>
       </div>
     </div>
     <script>
-      var images = [
+      var myimages1 = [
         "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_01.jpg",
         "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_02.jpg",
         "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_03.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_04.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_05.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_06.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_07.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_08.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_09.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_10.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_11.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_12.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_13.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_14.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_15.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_16.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_17.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_18.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_19.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_20.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_21.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_22.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_23.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_24.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_25.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_26.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_27.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_28.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_29.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_30.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_31.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_32.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_33.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_34.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_35.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_36.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_37.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_38.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_39.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_40.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_41.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_42.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_43.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_44.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_45.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_46.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_47.jpg",
-        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_48.jpg"
+        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d01_04.jpg"
+      ];
+      var myimages2 = [
+        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d02_01.jpg",
+        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d02_02.jpg",
+        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d02_03.jpg",
+        "https://tuculca.github.io/meteoMeteo/CloudTot/CloudTot_d02_04.jpg"
       ];
       var slider = document.getElementById("slider");
       var prevButton = document.getElementById("prev");
       var nextButton = document.getElementById("next");
+      var switchButton = document.getElementById("switch");
       var currentIndex = 0;
+      var currentImages = myimages1;
+      switchButton.addEventListener("click", function() {
+  if (switchButton.innerHTML === "Centro Italia") {
+    switchButton.innerHTML = "Italia";
+  } else {
+    switchButton.innerHTML = "Centro Italia";
+  }
+});
+      
       prevButton.addEventListener("click", function() {
         currentIndex--;
         if (currentIndex < 0) {
-          currentIndex = images.length - 1;
+          currentIndex = currentImages.length - 1;
         }
-        slider.src = images[currentIndex];
+        slider.src = currentImages[currentIndex];
       });
       nextButton.addEventListener("click", function() {
         currentIndex++;
-        if (currentIndex >= images.length) {
+        if (currentIndex >= currentImages.length) {
           currentIndex = 0;
         }
-        slider.src = images[currentIndex];
+        slider.src = currentImages[currentIndex];
+      });
+      switchButton.addEventListener("click", function() {
+        if (currentImages === myimages1) {
+          currentImages = myimages2;
+        } else {
+          currentImages = myimages1;
+        }
+        slider.src = currentImages[currentIndex];
       });
     </script>
   </body>
