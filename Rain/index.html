@@ -3,6 +3,26 @@
   <head>
     <title>Pioggia</title>
     <style>
+      
+      @media only screen and (max-width: 1200px) {
+      .container {
+        /* width: 508px;  */
+        /* height: 488px; */        
+        width: 100%;         
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      }
+
+      /* Imposta la larghezza della riga delle immagini al 75% per i desktop */
+      @media only screen and (min-width: 1201px) {
+
       .container {
         /* width: 508px;  */
         /* height: 488px; */        
@@ -15,6 +35,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        }
       }
 
       img {
