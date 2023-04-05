@@ -45,7 +45,26 @@ ln -s ${HOME}/WRF/WPSv4.4/met_em* .
 rm -f wrfinput*
 rm -f wrfbdy*
 mpirun -np 64 ./real.exe
-rm -f wrfout*
+# WRFDA ########################
+DateInit=$(date -d "${HourStart}:00:00 ${YearStart}-${MonthStart}-${DayStart}")
+YearAnalysis=$(date -d "$DateInit" +"%Y")
+MonthAnalysis=$(date -d "$DateInit" +"%m")
+DayAnalysis=$(date -d "$DateInit" +"%d")
+HourAnalysis=$(date -d "$DateInit" +"%H")
+MinuteAnalysis=$(date -d "$DateInit" +"%M")
+YearMin=$(date -d "$DateInit - 30 minutes" +"%Y")
+MonthMin=$(date -d "$DateInit - 30 minutes" +"%m")
+DayMin=$(date -d "$DateInit - 30 minutes" +"%d")
+HourMin=$(date -d "$DateInit - 30 minutes" +"%H")
+MinuteMin=$(date -d "$DateInit - 30 minutes" +"%M")
+YearMax=$(date -d "$DateInit + 30 minutes" +"%Y")
+MonthMax=$(date -d "$DateInit + 30 minutes" +"%m")
+DayMax=$(date -d "$DateInit + 30 minutes" +"%d")
+HourMax=$(date -d "$DateInit + 30 minutes" +"%H")
+MinuteMax=$(date -d "$DateInit + 30 minutes" +"%M")
+cd ${HOME}/assimilation
+./run3DvarConv.sh ${YearAnalysis} ${MonthAnalysis} ${DayAnalysis} ${HourAnalysis} ${MinuteAnalysis} ${YearMin} ${MonthMin} ${DayMin} ${HourMin} ${MinuteMin} ${YearMax} ${MonthMax} ${DayMax} ${HourMax} ${MinuteMax}
+################################
 mpirun -np 64 ./wrf.exe
 rm -f ${HOME}/out/wrfout*
 mv wrfout* ${HOME}/out
