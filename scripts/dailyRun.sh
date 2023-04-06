@@ -69,6 +69,8 @@ cd ${HOME}/WRF/WRFv4.4.2/run
 mpirun -np 64 ./wrf.exe
 rm -f ${HOME}/out/wrfout*
 mv wrfout* ${HOME}/out
+mkdir ${HOME}/DATA/archive/${YearAnalysis}-${MonthAnalysis}-${DayAnalysis}_${HourAnalysis}
+cp ${HOME}/out/wrfout* ${HOME}/DATA/archive/${YearAnalysis}-${MonthAnalysis}-${DayAnalysis}_${HourAnalysis}
 
 # Plot
 rm -f ${HOME}/plots/*.jpg
