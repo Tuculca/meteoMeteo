@@ -65,6 +65,7 @@ MinuteMax=$(date -d "$DateInit + 30 minutes" +"%M")
 cd ${HOME}/assimilation
 ./run3DvarConv.sh ${YearAnalysis} ${MonthAnalysis} ${DayAnalysis} ${HourAnalysis} ${MinuteAnalysis} ${YearMin} ${MonthMin} ${DayMin} ${HourMin} ${MinuteMin} ${YearMax} ${MonthMax} ${DayMax} ${HourMax} ${MinuteMax}
 ################################
+cd ${HOME}/WRF/WRFv4.4.2/run
 mpirun -np 64 ./wrf.exe
 rm -f ${HOME}/out/wrfout*
 mv wrfout* ${HOME}/out
