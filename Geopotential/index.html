@@ -2,8 +2,8 @@
 <html>
   <head>
     <title>Geopotenziale</title>
-    <style>
-
+    <style>      
+      
       @media only screen and (min-width: 1201px) {
       .container {
         /* width: 508px;  */
@@ -22,6 +22,16 @@
       img {
         height: 95%;
         margin: auto;
+      }
+      
+      button {
+        font-size: 16px;
+        padding: 5px 10px;
+      }
+
+      select {
+        font-size: 16px;
+        padding: 5px 10px;
       }
       }
       
@@ -44,12 +54,18 @@
         width: 95%;
         margin: auto;
       }
-      }
       
       button {
-        font-size: 16px;
+        font-size: 32px;
+        padding: 5px 20px;
+      }
+
+      select {
+        font-size: 32px;
         padding: 5px 10px;
       }
+      }
+      
 
     </style>
   </head>
@@ -57,9 +73,59 @@
     <div class="container">
       <img id="slider" src="https://tuculca.github.io/meteoMeteo/Geopotential/Geop_d01_01.jpg">
       <div>
-        <button id="prev" class="gradient-btn">&#8592;</button>
-        <button id="next" class="gradient-btn">&#8594;</button>
-        <button id="switch" class="gradient-btn">Centro Italia</button>
+        <select onchange="change_image()" name="select" id="hour">
+        <option value="0">+1</option>
+        <option value="1">+2</option>
+        <option value="2">+3</option>
+        <option value="3">+4</option>
+        <option value="4">+5</option>
+        <option value="5">+6</option>
+        <option value="6">+7</option>
+        <option value="7">+8</option>
+        <option value="8">+9</option>
+        <option value="9">+10</option>
+        <option value="10">+11</option>
+        <option value="11">+12</option>
+        <option value="12">+13</option>
+        <option value="13">+14</option>
+        <option value="14">+15</option>
+        <option value="15">+16</option>
+        <option value="16">+17</option>
+        <option value="17">+18</option>
+        <option value="18">+19</option>
+        <option value="19">+20</option>
+        <option value="20">+21</option>
+        <option value="21">+22</option>
+        <option value="22">+23</option>
+        <option value="23">+24</option>
+        <option value="24">+25</option>
+        <option value="25">+26</option>
+        <option value="26">+27</option>
+        <option value="27">+28</option>
+        <option value="28">+29</option>
+        <option value="29">+30</option>
+        <option value="30">+31</option>
+        <option value="31">+32</option>
+        <option value="32">+33</option>
+        <option value="33">+34</option>
+        <option value="34">+35</option>
+        <option value="35">+36</option>
+        <option value="36">+37</option>
+        <option value="37">+38</option>
+        <option value="38">+39</option>
+        <option value="39">+40</option>
+        <option value="40">+41</option>
+        <option value="41">+42</option>
+        <option value="42">+43</option>
+        <option value="43">+44</option>
+        <option value="44">+45</option>
+        <option value="45">+46</option>
+        <option value="46">+47</option>
+        <option value="47">+48</option>        
+     </select>
+        <button id="prev" onclick="selectPrev()">&#8592;</button>
+        <button id="next" onclick="selectNext()">&#8594;</button>
+        <button id="switch">Centro Italia</button>
       </div>
     </div>
     <script>
@@ -169,6 +235,31 @@
       var switchButton = document.getElementById("switch");
       var currentIndex = 0;
       var currentImages = myimages1;
+      
+        function change_image() {
+        var select = document.getElementById("hour");
+        var selection = select.selectedIndex;
+        currentIndex = select.options[selection].value; 
+        slider.src = currentImages[currentIndex];
+    };
+    
+    function selectNext(){
+  var select = document.getElementById('hour');
+    if (select.selectedIndex >= 47) {
+          select.selectedIndex = 0;
+        }
+    else {
+  select.selectedIndex++;}
+    }
+
+    function selectPrev(){
+  var select = document.getElementById('hour');
+  select.selectedIndex--;
+            if (select.selectedIndex < 0) {
+          select.selectedIndex = 47;
+        }
+}
+      
       switchButton.addEventListener("click", function() {
   if (switchButton.innerHTML === "Centro Italia") {
     switchButton.innerHTML = "Italia";
