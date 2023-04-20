@@ -57,7 +57,7 @@ def plot(fileInput, out_folder):
 	ax.add_feature(cfeature.BORDERS)
 	ax.add_feature(cfeature.COASTLINE, zorder=3, alpha=0.35)
 	
-	fname = '/home/disco4/afalcione/OPER/plots/shapefiles/gadm41_ITA_1.shp'
+	fname = '/home/afalcione/OPER/plots/shapefiles/gadm41_ITA_1.shp'
 	adm1_shapes = list(shpreader.Reader(fname).geometries())
 	ax.add_geometries(adm1_shapes, crs.PlateCarree(), edgecolor='black', facecolor='none', alpha=0.35, zorder=2) #faceocolor era "gray"
 

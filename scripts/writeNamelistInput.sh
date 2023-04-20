@@ -1,14 +1,14 @@
-HOME=/home/disco4/afalcione/OPER
-YEAR_S=$1
-YEAR_E=$5
-MONTH_S=$2
-MONTH_E=$6
-DAY_S=$3
-DAY_E=$7
-HOUR_S=$4
-HOUR_E=$8
+HOME=$1
+YEAR_S=$2
+YEAR_E=$6
+MONTH_S=$3
+MONTH_E=$7
+DAY_S=$4
+DAY_E=$8
+HOUR_S=$5
+HOUR_E=$9
 
-cat << End_Of_Namelist2 | sed -e 's/#.*//; s/  *$//' > ${HOME}/WRF/WRFv4.4.2/run/namelist.input
+cat << End_Of_Namelist2 | sed -e 's/#.*//; s/  *$//' > ${HOME}/WRFv4.4.2/run/namelist.input
  &time_control
  run_days                            = 0,
  run_hours                           = 48,

@@ -1,16 +1,15 @@
-HOME=/home/disco4/afalcione/OPER
 
-YEAR_S=$1
-YEAR_E=$5
-MONTH_S=$2
-MONTH_E=$6
-DAY_S=$3
-DAY_E=$7
-HOUR_S=$4
-HOUR_E=$8
+HOME=$1
+YEAR_S=$2
+YEAR_E=$6
+MONTH_S=$3
+MONTH_E=$7
+DAY_S=$4
+DAY_E=$8
+HOUR_S=$5
+HOUR_E=$9
 
-
-cat << End_Of_Namelist1 | sed -e 's/#.*//; s/  *$//' > ${HOME}/WRF/WPSv4.4/namelist.wps
+cat << End_Of_Namelist1 | sed -e 's/#.*//; s/  *$//' > ${HOME}/WPSv4.4/namelist.wps
 &share
  wrf_core = 'ARW',
  max_dom = 2,
@@ -18,7 +17,7 @@ cat << End_Of_Namelist1 | sed -e 's/#.*//; s/  *$//' > ${HOME}/WRF/WPSv4.4/namel
  end_date   = '${YEAR_E}-${MONTH_E}-${DAY_E}_${HOUR_E}:00:00', '${YEAR_E}-${MONTH_E}-${DAY_E}_${HOUR_E}:00:00', 
  interval_seconds = 10800,
  io_form_geogrid = 2,
- opt_output_from_geogrid_path = '${HOME}/WRF/WPSv4.4',
+ opt_output_from_geogrid_path = '${HOME}/WPSv4.4',
  debug_level = 0,
 /
 
@@ -38,8 +37,8 @@ cat << End_Of_Namelist1 | sed -e 's/#.*//; s/  *$//' > ${HOME}/WRF/WPSv4.4/namel
  truelat1  = 41.916,
  truelat2  = 41.916,
  stand_lon = 12.47,
- geog_data_path = '/home/ferretti/WRF_Intel/GEOG/WPS_GEOG/geog',
- opt_geogrid_tbl_path = '${HOME}/WRF/WPSv4.4/geogrid',
+ geog_data_path = '/home/ricchi/WRF/GEOG/WPS_GEOG',
+ opt_geogrid_tbl_path = '${HOME}/WPSv4.4/geogrid',
  ref_x = 189.5,
  ref_y = 215.5,
 /
@@ -53,8 +52,8 @@ cat << End_Of_Namelist1 | sed -e 's/#.*//; s/  *$//' > ${HOME}/WRF/WPSv4.4/namel
  fg_name = 'FILE',
  io_form_metgrid = 2,
  constants_name = 'TAVGSFC'
- opt_output_from_metgrid_path = '${HOME}/WRF/WPSv4.4',
- opt_metgrid_tbl_path = '${HOME}/WRF/WPSv4.4/metgrid',
+ opt_output_from_metgrid_path = '${HOME}/WPSv4.4',
+ opt_metgrid_tbl_path = '${HOME}/WPSv4.4/metgrid',
 /
 
 &mod_levs

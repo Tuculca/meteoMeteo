@@ -1,11 +1,12 @@
 #!/bin/bash -l
 
-addressWrfouts=/home/disco4/afalcione/OPER/out
-addressPlots=/home/disco4/afalcione/OPER/plots
+HOME=/home/afalcione
+addressWrfouts=${HOME}/OPER/output
+addressPlots=${HOME}/OPER/plots
 
 . /home/afalcione/.bashrc_conda
 eval "$(conda shell.bash hook)"
-conda activate aleBase
+conda activate aleOPER
 
 cd ${addressPlots}
 
