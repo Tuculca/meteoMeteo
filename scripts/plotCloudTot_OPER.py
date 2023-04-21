@@ -47,7 +47,7 @@ def plot(fileInput, out_folder):
 	clr=ax.pcolormesh(to_np(lons), to_np(lats), cTot, transform=crs.PlateCarree(), cmap=cmap, shading='gouraud', zorder=1, vmin=0, vmax=1)
 	ax.add_feature(cfeature.COASTLINE, zorder=4)
 	
-	fname = '/home/disco4/afalcione/OPER/plots/shapefiles/gadm41_ITA_1.shp'
+	fname = '/home/afalcione/OPER/plots/shapefiles/gadm41_ITA_1.shp'
 	adm1_shapes = list(shpreader.Reader(fname).geometries())
 	ax.add_geometries(adm1_shapes, crs.PlateCarree(), edgecolor='black', facecolor='none', zorder=5) #faceocolor era "gray"
 
