@@ -67,6 +67,7 @@ cat << End_Of_Namelist2 | sed -e 's/#.*//; s/  *$//' > ${HOME}/WRFv4.4.2/run/nam
  e_sn                                = 431,319,229,139,193,
  s_vert                              = 1,     1,    1,    1,  1,
  e_vert                              = 40,    40,   40,   37,   37,
+ auto_levels_opt                     = 1,
  num_metgrid_levels                  = 34,
  num_metgrid_soil_levels             = 4,
  p_top_requested                     = 10000,
