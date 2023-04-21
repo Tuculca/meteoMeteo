@@ -31,7 +31,7 @@ cat << End_Of_Namelist2 | sed -e 's/#.*//; s/  *$//' > ${HOME}/WRFv4.4.2/run/nam
  history_interval                    = 60,  60,   60,  60,  60,
  frames_per_outfile                  = 1, 1, 1, 1, 1,
  restart                             = .false.,
- restart_interval                    = 6000.,
+ restart_interval                    = 0,
  cycling                             = .false.,
  io_form_history                     = 2
  io_form_restart                     = 2
