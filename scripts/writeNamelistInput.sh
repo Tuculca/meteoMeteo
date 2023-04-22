@@ -79,7 +79,7 @@ cat << End_Of_Namelist2 | sed -e 's/#.*//; s/  *$//' > ${HOME}/WRFv4.4.2/run/nam
  j_parent_start    		     = 1,180,192,29,43,
  parent_grid_ratio                   = 1,     3,     3,    3,    3,
  parent_time_step_ratio              = 1,     3,     3,    3,    3,
- feedback                            = 1,     
+ feedback                            = 0,     
  smooth_option                       = 2,
  /
 &physics
