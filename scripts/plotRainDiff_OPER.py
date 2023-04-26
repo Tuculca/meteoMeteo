@@ -37,13 +37,13 @@ def plot(file1, file2, out_folder):
 	colours=['#d2fffe', '#88fefd', '#00c6ff', '#1996ff', '#3c41ff', '#3cbc3d', '#a5d71f', '#ffe600', '#ffc300', '#ff7d00', '#ff0000', '#c80000', '#d464c3', '#b5199d', '#840094', '#dcdcdc', '#b4b4b4', '#8c8c8c', '#5a5a5a']
 	cmap = (mpl.colors.ListedColormap(colours).with_extremes(over='black', under='white'))
 	bounds = [0.2,1,3,5,7,10,15,20,25,30,40,50,60,70,80,100,125,150,175,200]
-	norm = mpl.colors.BoundaryNorm(bounds, cmap.N, clip=True)
+	norm = mpl.colors.BoundaryNorm(bounds, cmap.N)
 	
 	fig = plt.figure(figsize=(16, 12), dpi=120)
 	ax = fig.add_subplot(projection=cart_proj)
 
 	#clr = ax.pcolormesh(to_np(lons), to_np(lats), get_var_np, transform=crs.PlateCarree(), cmap='plasma', shading='gouraud', zorder=3, vmin=Vmin, vmax=Vmax)
-	clr = ax.contourf(to_np(lons), to_np(lats), get_var_np, levels=bounds, colors=colours, zorder=3, transform=crs.PlateCarree(), alpha=0.85)
+	clr = ax.contourf(to_np(lons), to_np(lats), get_var_np, levels=bounds, cmap=cmap, norm=norm, zorder=3, transform=crs.PlateCarree(), alpha=0.85)
 	
 	
 	#land_50m = cfeature.NaturalEarthFeature('physical', 'land', '50m', edgecolor='face', facecolor=cfeature.COLORS['land'])
