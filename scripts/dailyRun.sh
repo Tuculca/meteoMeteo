@@ -14,7 +14,7 @@ YearEnd=$(date -d "now + 48 hour" +"%Y")
 MonthEnd=$(date -d "now + 48 hour" +"%m")
 DayEnd=$(date -d "now + 48 hour" +"%d")
 HourEnd=00
-nCPU=20
+nCPU=18
 
 echo 'Start: ' $YearStart $MonthStart $DayStart $HourStart 'End: ' $YearEnd $MonthEnd $DayEnd $HourEnd
 
