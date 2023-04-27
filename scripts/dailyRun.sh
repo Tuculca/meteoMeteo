@@ -64,7 +64,7 @@ DayMax=$(date -d "${HourStart}:00:00 ${YearStart}-${MonthStart}-${DayStart} + 30
 HourMax=$(date -d "${HourStart}:00:00 ${YearStart}-${MonthStart}-${DayStart} + 30 minutes" +"%H")
 MinuteMax=$(date -d "${HourStart}:00:00 ${YearStart}-${MonthStart}-${DayStart} + 30 minutes" +"%M")
 #cd ${HOME}/assimilation
-#./run3DvarConv.sh ${YearAnalysis} ${MonthAnalysis} ${DayAnalysis} ${HourAnalysis} ${MinuteAnalysis} ${YearMin} ${MonthMin} ${DayMin} ${HourMin} ${MinuteMin} ${YearMax} ${MonthMax} ${DayMax} ${HourMax} ${MinuteMax}
+#./run3DvarConv.sh ${YearAnalysis} ${MonthAnalysis} ${DayAnalysis} ${HourAnalysis} ${MinuteAnalysis} ${YearMin} ${MonthMin} ${DayMin} ${HourMin} ${MinuteMin} ${YearMax} ${MonthMax} ${DayMax} ${HourMax} ${MinuteMax} ${HOME}
 ################################
 cd ${HOME}/WRFv4.4.2/run
 mpirun -np ${nCPU} ./wrf.exe
