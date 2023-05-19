@@ -33,12 +33,16 @@ cat << End_Of_Namelist2 | sed -e 's/#.*//; s/  *$//' > ${HOME}/WRFv4.4.2/run/nam
  restart                             = .false.,
  restart_interval                    = 0,
  cycling                             = .false.,
- io_form_history                     = 2
- io_form_restart                     = 2
- io_form_input                       = 2
- io_form_boundary                    = 2
+ io_form_history                     = 11
+ io_form_restart                     = 11
+ io_form_input                       = 11
+ io_form_boundary                    = 11
+ io_form_auxinput4                   = 11
+ io_form_auxhist4                    = 11
+ io_form_auxhist24                   = 11
+ io_form_auxinput24                  = 11
  debug_level                         = 0
- nocolons                            = .false.,
+ nocolons                            = .true.,
  /
 
  &domains
