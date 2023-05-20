@@ -42,7 +42,7 @@ cat << End_Of_Namelist2 | sed -e 's/#.*//; s/  *$//' > ${HOME}/WRFv4.4.2/run/nam
  io_form_auxhist24                   = 11
  io_form_auxinput24                  = 11
  debug_level                         = 0
- nocolons                            = .true.,
+ nocolons                            = .false.,
  /
 
  &domains
