@@ -15,16 +15,16 @@ do
 
 dateStart=$1
 #dateStart="12:00:00 2022-12-17"
-dateEnd=$(date -d "$dateStart + 48 hour" +%Y-%m-%d_%H:%M:%S)
+dateEnd=$(date -d "$dateStart + 48 hour" +%Y-%m-%d_%H_%M_%S)
 dateNewFmt=$dateStart
 dateNew=$dataStart
 
 hourNew=01
 while [ "$dateNew" != $dateEnd ]
 do
-dateOld=$(date -d "$dateNewFmt" +"%Y-%m-%d_%H:%M:%S")
+dateOld=$(date -d "$dateNewFmt" +"%Y-%m-%d_%H_%M_%S")
 dateNewFmt=$(date -d "$dateNewFmt + 3 hour" +"%H:%M:%S %Y-%m-%d")
-dateNew=$(date -d "$dateNewFmt" +%Y-%m-%d_%H:%M:%S)
+dateNew=$(date -d "$dateNewFmt" +%Y-%m-%d_%H_%M_%S)
 echo "Start: "$dateOld
 echo "End  : "$dateNew
 echo " "
@@ -38,7 +38,7 @@ done
 wait
 done
 
-date2End=$(date -d "$dateStart + 48 hour" +%Y-%m-%d_%H:%M:%S)
+date2End=$(date -d "$dateStart + 48 hour" +%Y-%m-%d_%H_%M_%S)
 date2NewFmt=$dateStart
 date2New=$dataStart
 
@@ -47,7 +47,7 @@ while [ "$date2New" != $date2End ]
 do
 date2Old=$(date -d "$date2NewFmt" +"%Y-%m-%d_%H:%M:%S")
 date2NewFmt=$(date -d "$date2NewFmt + 1 hour" +"%H:%M:%S %Y-%m-%d")
-date2New=$(date -d "$date2NewFmt" +%Y-%m-%d_%H:%M:%S)
+date2New=$(date -d "$date2NewFmt" +%Y-%m-%d_%H_%M_%S)
 echo "Start: "$date2Old
 echo "End  : "$date2New
 echo " "
