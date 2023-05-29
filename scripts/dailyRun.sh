@@ -2,7 +2,7 @@
 
 ulimit -s unlimited
 
-source /home/afalcione/sourceme_gnu 
+source /home/afalcione/sourceme_intel 
 
 HOME=/home/afalcione
 
