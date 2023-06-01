@@ -9,11 +9,11 @@ HOME=/home/afalcione
 YearStart=$(date -d "now" +"%Y")
 MonthStart=$(date -d "now" +"%m")
 DayStart=$(date -d "now" +"%d")
-HourStart=00
+HourStart=$1
 YearEnd=$(date -d "now + 48 hour" +"%Y")
 MonthEnd=$(date -d "now + 48 hour" +"%m")
 DayEnd=$(date -d "now + 48 hour" +"%d")
-HourEnd=00
+HourEnd=$1
 nCPU=18
 
 echo 'Start: ' $YearStart $MonthStart $DayStart $HourStart 'End: ' $YearEnd $MonthEnd $DayEnd $HourEnd
