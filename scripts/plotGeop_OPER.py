@@ -37,7 +37,7 @@ def plot(fileInput, out_folder):
 	Vmax=numpy.ceil(Vmax)
 	#cmap=plt.get_cmap('viridis', int(Vmax-Vmin))
 	boundsSLP = numpy.linspace(Vmin, Vmax, int(Vmax-Vmin)+1)
-	cmap=plt.get_cmap('jet', 20)
+	cmap=plt.get_cmap('jet', 20).with_extremes(over='black', under='black')
 	bounds = numpy.linspace(480,600,21)
 	norm = mpl.colors.BoundaryNorm(bounds, cmap.N)
 	
@@ -48,6 +48,8 @@ def plot(fileInput, out_folder):
 	ax.set_xlim(cartopy_xlim(z))
 	ax.set_ylim(cartopy_ylim(z))
 	#clr = ax.pcolormesh(to_np(lons), to_np(lats), get_var_np, transform=crs.PlateCarree(), cmap='plasma', shading='gouraud', zorder=3, vmin=Vmin, vmax=Vmax)
+
+	bounds_with_extremes=[300, 480, 486, 492, 498, 504, 510, 516, 522, 528, 534, 540, 546, 552, 558, 564, 570, 576, 582, 588, 594, 600, 800]
 	ax.contourf(to_np(lons), to_np(lats), get_var_np, levels=bounds, cmap=cmap, norm=norm, zorder=1, transform=crs.PlateCarree())
 	cs = ax.contour(to_np(lons), to_np(lats), to_np(slp), levels=boundsSLP, colors='grey', zorder=4, linewidths=2, transform=crs.PlateCarree())
 	
