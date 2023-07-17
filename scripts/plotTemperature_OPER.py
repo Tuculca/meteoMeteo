@@ -45,8 +45,10 @@ def plot(fileInput, out_folder):
 	ax.set_xlim(cartopy_xlim(get_var))
 	ax.set_ylim(cartopy_ylim(get_var))
 	#clr = ax.pcolormesh(to_np(lons), to_np(lats), get_var_np, transform=crs.PlateCarree(), cmap='plasma', shading='gouraud', zorder=3, vmin=Vmin, vmax=Vmax)
-	ax.contourf(to_np(lons), to_np(lats), get_var_np, levels=bounds, cmap=cmap, norm=norm, zorder=1, transform=crs.PlateCarree())
-	cs = ax.contour(to_np(lons), to_np(lats), get_var_np, levels=bounds, colors='black', zorder=4, transform=crs.PlateCarree(), alpha=0.75)
+
+	bounds_with_extremes = [-15, -12, -9, -6, -3, 0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 100]
+	ax.contourf(to_np(lons), to_np(lats), get_var_np, levels=bounds_with_extremes, cmap=cmap, norm=norm, zorder=1, transform=crs.PlateCarree())
+	cs = ax.contour(to_np(lons), to_np(lats), get_var_np, levels=bounds_with_extremes, colors='black', zorder=4, transform=crs.PlateCarree(), alpha=0.75)
 	
 	#land_50m = cfeature.NaturalEarthFeature('physical', 'land', '50m', edgecolor='face', facecolor=cfeature.COLORS['land'])
 	#ax.add_feature(land_50m)
