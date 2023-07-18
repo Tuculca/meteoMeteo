@@ -50,7 +50,7 @@ def plot(fileInput, out_folder):
 	#clr = ax.pcolormesh(to_np(lons), to_np(lats), get_var_np, transform=crs.PlateCarree(), cmap='plasma', shading='gouraud', zorder=3, vmin=Vmin, vmax=Vmax)
 
 	bounds_with_extremes=[300, 480, 486, 492, 498, 504, 510, 516, 522, 528, 534, 540, 546, 552, 558, 564, 570, 576, 582, 588, 594, 600, 800]
-	ax.contourf(to_np(lons), to_np(lats), get_var_np, levels=bounds, cmap=cmap, norm=norm, zorder=1, transform=crs.PlateCarree())
+	ax.contourf(to_np(lons), to_np(lats), get_var_np, levels=bounds_with_extremes, cmap=cmap, norm=norm, zorder=1, transform=crs.PlateCarree())
 	cs = ax.contour(to_np(lons), to_np(lats), to_np(slp), levels=boundsSLP, colors='grey', zorder=4, linewidths=2, transform=crs.PlateCarree())
 	
 	#land_50m = cfeature.NaturalEarthFeature('physical', 'land', '50m', edgecolor='face', facecolor=cfeature.COLORS['land'])
