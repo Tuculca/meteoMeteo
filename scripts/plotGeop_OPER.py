@@ -69,7 +69,7 @@ def plot(fileInput, out_folder):
 	plt.title("Altezza superficie 500hPa e Pressione al livello del mare" + str(pandas.to_datetime(to_np(times))))
 	
 	cbar = fig.colorbar(mpl.cm.ScalarMappable(cmap=cmap, norm=norm),
-	extend='neither',
+	extend='both',
 	extendfrac='auto',
 	ticks=bounds,
 	spacing='uniform')
